@@ -1,0 +1,107 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet/less" href="css/main.less" />
+        <script>
+          less = {
+              env: "development",
+              poll: 1000
+          };
+          </script>
+          <script src="js/vendor/less.min.js"></script>
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+          <h1 class="page-header">Simple Photo Viewing Application</h1>
+           <form class="frm photo form-inline">
+              <div class="form-group">
+                 <label for="tags" class="control-label">Tags</label>
+                 <input type="text" name="tags" id="tags" text="" class="form-control">
+              </div>
+              <div class="form-group">
+                 <select id = "perPages" class="form-control">
+                     <option value = "10">10</option>
+                     <option value = "15">15</option>  
+                     <option value = "20">20</option>
+                     <option value = "25">25</option>
+                     <option value = "30">30</option>
+                     <option value = "35">35</option>
+                     <option value = "40">40</option>
+                     <option value = "45">45</option>
+                     <option value = "50">50</option>
+                   </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+           </form>
+           <div class="errors"></div>
+           <div class="description col-lg-10 justify-content-center">
+              <div class="descriptionImage">
+                  <img class="imageFull" src="" alt=""/>
+              </div>
+                  <div class="details"></div>
+           </div>
+           <section class="searchImgs col-lg-12">
+           </section>
+           <section class="imgs col-lg-12">
+           </section>
+           <nav aria-label="Page navigation">
+              <ul class="pagination">
+              </ul>
+            </nav>
+        </div>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        
+        
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUFDexng6s_06vJMHAW2cnN-gxWNcFwdE"></script>
+        
+        <script src="js/vendor/handlebars-v4.0.10.js"></script>
+
+        <script id="description-template" type="text/x-handlebars-template">
+                <p>Name: <span class="realName discriptionInput">{{realName}}</span></p>
+                <p>User Name: <span class="user discriptionInput">{{userName}}</span></p>
+                <p>Title: <span class="title discriptionInput">{{title}}</span></p>
+                <p>Date: <span class="date discriptionInput">{{date}}</span></p>
+                <p>Descripion: <span class="descripionText discriptionInput">{{description}}</span></p>
+        </script>
+
+        <script id="search-template" type="text/x-handlebars-template">
+            {{#each searchImgs}}
+                <div class="imgContainer col-lg-3">
+                  <div class="imageContainer">
+                    <img class="image" src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}.jpg" alt="{{id}}"/>
+                    <div class="overlay"data-toggle="tooltip" data-placement="right" title="Photo has no location information available"></div>
+                  </div>
+                  <button class="btn btn-primary search" type="submit">View Description</button>
+                </div>
+            {{/each}}
+
+            {{#each imgs}}
+                <div class="imgContainer col-lg-3">
+                  <div class="imageContainer">
+                    <img class="image" src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}.jpg" alt="{{id}}" />
+                    <div class="overlay" data-toggle="tooltip" data-placement="right" title="Photo has no location information available"></div>
+                  </div>
+                  <button class="btn btn-primary search" type="button">View Description</button>
+                </div>
+            {{/each}}
+      </script>
+
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+    </body>
+</html>
